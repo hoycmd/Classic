@@ -48,24 +48,24 @@
       {
         "Name": "default_game_mode_length",
         "DisplayName": "GameMode_Time:",
-        "Default": "Time: xl6.50 min.",
+        "Default": "Time: s_2.90 min.",
         "Order": 6,
         "Variants": [
           {
             "Name": "LENGTH_sTIME",
-            "DisplayName": "Time: s2.50 min."
+            "DisplayName": "Time: s_2.90 min."
           },
           {
-            "Name": "Length_M",
-            "DisplayName": "GmParams/Length_M"
+            "Name": "LENGTH_mTIME",
+            "DisplayName": "Time: m_3.50 min."
           },
           {
-            "Name": "Length_L",
-            "DisplayName": "GmParams/Length_L"
+            "Name": "LENGTH_lTIME",
+            "DisplayName": "Time: l_6.70 min."
           },
           {
-            "Name": "Length_XL",
-            "DisplayName": "GmParams/Length_XL"
+            "Name": "LENGTH_xlTIME",
+            "DisplayName": "Time: xl_7.60 min."
           }
         ]
       }
