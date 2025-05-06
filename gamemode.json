@@ -47,13 +47,13 @@
     "Dropdown": [
       {
         "Name": "default_game_mode_length",
-        "DisplayName": "GmParams/Length",
-        "Default": "Length_XL",
+        "DisplayName": "GameMode_Time:",
+        "Default": "Time: xl6.50 min.",
         "Order": 6,
         "Variants": [
           {
-            "Name": "Length_S",
-            "DisplayName": "GmParams/Length_S"
+            "Name": "LENGTH_sTIME",
+            "DisplayName": "Time: s2.50 min."
           },
           {
             "Name": "Length_M",
