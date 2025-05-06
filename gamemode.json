@@ -46,8 +46,8 @@
     ],
     "Dropdown": [
       {
-        "Name": "default_game_mode_length",
-        "DisplayName": "GameMode_Time:",
+        "Name": "game_mode_length_seconds",
+        "DisplayName": "GameMode !_Time:",
         "Default": "Time: s_2.90 min.",
         "Order": 6,
         "Variants": [
