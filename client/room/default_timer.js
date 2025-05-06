@@ -2,7 +2,7 @@
 import * as room from 'pixel_combats/room';
 
 // константы
-const PARAMETER_GAME_LENGTH = 'default_game_mode_length';
+const PARAMETER_GAME_LENGTH = 'game_mode_length_seconds';
 const GAME_MODE_TIME = game_mode_length_seconds;
 const lENGTH_GAME_MODE = room.GameMode.Parameters.GetString(PARAMETER_GAME_LENGTH);
 
