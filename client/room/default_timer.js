@@ -9,10 +9,10 @@ const lENGTH_GAME_MODE = room.GameMode.Parameters.GetString(PARAMETER_GAME_LENGT
 // возвращает длину матча
 export function GAME_MODE_TIME() {
     switch (LENGTH_GAME_MODE) {
-        case 'LENGTH_sTIME': return 350;
-        case 'LENGTH_mTIME': return 290;
-        case 'LENGTH_lTIME': return 760; 
-        case 'LENGTH_xlTIME': return 670; 
+        case 'LENGTH_sTIME': return 290;
+        case 'LENGTH_mTIME': return 350;
+        case 'LENGTH_lTIME': return 670; 
+        case 'LENGTH_xlTIME': return 760; 
     }
-    return 350;
+    return 290;
 }
