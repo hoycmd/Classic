@@ -2,6 +2,19 @@
 import * as room from 'pixel_combats/room';
 import * as basic from 'pixel_combats/basic';
 
+// * Настройки. * //
+const MaxScores = 6;
+const WaitingPlayersSeconds = 11;
+const BuildModeSeconds = 31;
+const GameModeSeconds = 121;
+const EndGameSeconds = 5;
+const End0fMatchTime = 11;
+const WaitingStateValue = 'Waiting';
+const BuildModeStateValue = 'BuildMode';
+const GameStateValue = 'Game';
+const End0fMatchStateValue = 'End0fMatch';
+const SCORES_PROP_NAME = 'Scores';
+
 // * Создаём команды. * //
 let BlueTeam = CreateNewTeam('Blue', 'Teams/Blue \n Команда синия', new basic.Color(0, 0, 1, 0), room.BuildBlocksSet.Blue);
 room.Spawns.SpawnPointsGroups.Add(1);
