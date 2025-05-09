@@ -16,16 +16,25 @@ const End0fMatchStateValue = 'End0fMatch';
 const SCORES_PROP_NAME = 'Scores';
 
 // * Создаём команды. * //
-let BlueTeam = CreateNewTeam('Blue', 'Teams/Blue \n Команда синия', new basic.Color(0, 0, 1, 0), room.BuildBlocksSet.Blue);
-room.Spawns.SpawnPointsGroups.Add(1);
-let RedTeam = CreateNewTeam('Red', 'Teams/Red \n Команда красная', new basic.Color(1, 0, 0, 0), room.BuildBlocksSet.Red);
-room.Spawns.SpawnPointsGroups.Add(2);
+room.Teams.Add('Blue', 'Teams/Blue', new Color(0, 0, 1, 0));
+room.Teams.Add('Red', 'Teams/Red', new Color(1, 0, 0, 0));
+room.Teams.Get('Blue').Spawns.SpawnPointsGroups.Add(1);
+room.Teams.Get('Blue').Spawns.SpawnPointsGroups.Add(2);
+room.Teams.Get('Blue').Build.BlocksSet.Value = room.BuildBlocksSet.Blue;
+room.Teams.Get('Red').Build.BlocksSet.Value = room.BuildBlocksSet.Red;
+
 // * Настройки, интерфейс - команд. * //
 room.Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: SCORES_PROP_NAME };
 room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: SCORES_PROP_NAME };
 
 // * Вход, в команды - по запросу. * //
-room.Teams.OnRequestJoinTeam.Add(function(Player) { Team.Add(Player); if (StateProp.Value === GameModeStateValue) return; Player.Spawns.Spawn()});
+room.Teams.OnRequestJoinTeam.Add(function(Player, Team) { Team.Add(Player);});
+// * Спавн, по входу - в команду. * //
+room.Teams.OnPlayerChangeTeam.Add(function(Player) {
+if (StateProp.value === GameStateValue) return;
+	Player.Spawns.Spawn();
+});
+
 
 // * Параметры, режима - игры.* //
 room.BreackGraph.PlayerBlockBoost = true;
