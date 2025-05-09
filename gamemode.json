@@ -1,6 +1,6 @@
 {
-  "Name": "Capture (API 2.0)",
-  "Description": "CAPTURE: Захватывайте или защищайте зоны, что-бы получить преимущество - двух команд.",
+  "Name": "Classic (API 2.0)",
+  "Description": "2 команды сражаются друг с другом, что бы победить в этой битве, для противоборство двух команд.",
   "StartClientVersion": 573,
   "MapFilter": {
     "IsBlank": false,
@@ -42,33 +42,7 @@
         "Name": "FriendlyFire",
         "DisplayName": "GmParams/FriendlyFire",
         "Order": 5
-      }
-    ],
-    "Dropdown": [
-      {
-        "Name": "game_mode_length_seconds",
-        "DisplayName": "GameMode !_Time:",
-        "Default": "Time: s_2.90 min.",
-        "Order": 6,
-        "Variants": [
-          {
-            "Name": "LENGTH_sTIME",
-            "DisplayName": "Time: s_2.90 min."
-          },
-          {
-            "Name": "LENGTH_mTIME",
-            "DisplayName": "Time: m_3.50 min."
-          },
-          {
-            "Name": "LENGTH_lTIME",
-            "DisplayName": "Time: l_6.70 min."
-          },
-          {
-            "Name": "LENGTH_xlTIME",
-            "DisplayName": "Time: xl_7.60 min."
           }
         ]
       }
-    ]
   }
-}
