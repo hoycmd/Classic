@@ -19,7 +19,7 @@ const SCORES_PROP_NAME = 'Scores';
 room.Teams.Add('Blue', 'Teams/Blue', new Color(0, 0, 1, 0));
 room.Teams.Add('Red', 'Teams/Red', new Color(1, 0, 0, 0));
 room.Teams.Get('Blue').Spawns.SpawnPointsGroups.Add(1);
-room.Teams.Get('Blue').Spawns.SpawnPointsGroups.Add(2);
+room.Teams.Get('Red').Spawns.SpawnPointsGroups.Add(2);
 room.Teams.Get('Blue').Build.BlocksSet.Value = room.BuildBlocksSet.Blue;
 room.Teams.Get('Red').Build.BlocksSet.Value = room.BuildBlocksSet.Red;
 
