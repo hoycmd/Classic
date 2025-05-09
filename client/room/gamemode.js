@@ -35,7 +35,6 @@ if (StateProp.value === GameStateValue) return;
 	Player.Spawns.Spawn();
 });
 
-
 // * Параметры, режима - игры.* //
 room.BreackGraph.PlayerBlockBoost = true;
 room.Damage.GetContext().GranadeTouchExplosion.Value = false;
@@ -69,7 +68,7 @@ room.LeaderBoard.PlayerWeightGetter.Set(function(Player) {
 });
 
 // * Изначальные, очки - команды: 0. * //
- for (const  Team of room.Teams.All) {
+ for (const  Team of room.Teams) {
   Team.Properties.Get(SCORES_PROP_NAME).Value = 0;
  }
 
@@ -118,22 +117,22 @@ win_team = null;
   }
   // * Победа, по команде - игроков. * //
    if (!hasEmptyTeam && alife_count > 0 && wins === 1) {
-	  	//log.debug("hasEmptyTeam=" + hasEmptyTeam);
-	  	//log.debug("alifeCount=" + alifeCount);
-	  	//log.debug("wins=" + wins);
+	  	log.debug("hasEmptyTeam=" + hasEmptyTeam);
+	  	log.debug("alifeCount=" + alifeCount);
+	  	log.debug("wins=" + wins);
 	  	win_team_id_prop.Value = win_team.Id;
 	     	StartEndOfGame(win_team);
 	  	return;
    }
   // * Если нет в команде, коинта - то ничего не задано. * //
   if (alife_count === 0) {
-	   	//log.debug("ïîáåäèâøèõ íåò è æèâûõ íå îñòàëîñü - íè÷üÿ");
+	   	log.debug("ïîáåäèâøèõ íåò è æèâûõ íå îñòàëîñü - íè÷üÿ");
 	      win_team_id_prop.Value = null;
 	 	StartEndOfGame(null);
   }
   // * Если таймер, прошёл. * //
   if (!main_timer.IsStarted) {
-	  	//log.debug("ïîáåäèâøèõ íåò è òàéìåð íå àêòèâåí - íè÷üÿ");
+	  	log.debug("ïîáåäèâøèõ íåò è òàéìåð íå àêòèâåí - íè÷üÿ");
 		win_team_id_prop.Value = null;
 		StartEndOfGame(null);
 	    }
