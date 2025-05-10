@@ -30,7 +30,7 @@
       },
       {
         "Name": "LoosenBlocks",
-        "DisplayName": "<b><color=Green>◀</a=</b> Лом блоков: включен. <b><color=Green>▶</a></b>",
+        "DisplayName": "<b><color=Green>◀</a></b> Лом блоков: включен. <b><color=Green>▶</a></b>",
         "Order": 4
       },
       {
