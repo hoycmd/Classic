@@ -22,7 +22,6 @@ const ScoresTimer = Timers.GetContext().Get('Scores');
 
 // параметры создания режима
 Map.Rotation = GameMode.Parameters.GetBool('MapRotation');
-Map.LoadRandomMap = GameMode.Parameters.GetBool('MapLoadRandomMap');
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool('PartialDesruction');
 BreackGraph.WeakBlocks = GameMode.Parameters.GetBool('LoosenBlocks');
 // параметры игры
@@ -226,6 +225,9 @@ if (player.Properties.Deaths.Value === 0) {
  Game.GameOver(LeaderBoard.GetPlayers());
 }
 function RestartGame() {
+ if (GameMode.Parameters.GetBool('LoadRandomMap')) {
+Map.LoadRandomMap();
+ }
  Game.RestartGame();
 }
 
