@@ -45,7 +45,7 @@ room.TeamsBalancer.IsAutoBalance = true;
 room.Map.Rotation = room.GameMode.Parameters.GetBool('MapRotation');
 room.BreackGraph.OnlyPlayerBlocksDmg = room.GameMode.Parameters.GetBool('PartialDesruction');
 room.Damage.GetContext().FriendlyFire.Value = room.GameMode.Parameters.GetBool('FriendlyFire');
-room.BreackGraph.WeakBlocks = GameMode.Parameters.GetBool('LoosenBlock');
+room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool('LoosenBlock');
 
 // * ЛидерБорд. * //
 room.LeaderBoard.PlayerLeaderBoardValues = [
@@ -66,11 +66,6 @@ room.LeaderBoard.PlayerWeightGetter.Set(function(Player) {
    if (Prop.Value === null) return 0;
  return Prop.Value;
 });
-
-// * Изначальные, очки - команды: 0. * //
- for (const  Team of room.Teams) {
-  Team.Properties.Get(SCORES_PROP_NAME).Value = 0;
- }
 
 // * Счётчик смертей. * //
 room.Damage.OnDeath.Add(function(Player) {
