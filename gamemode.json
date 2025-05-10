@@ -1,6 +1,6 @@
 {
-  "Name": "Classic (API 2.0)",
-  "Description": "2 команды сражаются друг с другом, что бы победить в этой битве, для противоборство двух команд.",
+  "Name": "FriendlyFire GAME",
+  "Description": "FriendlyFire GAME: Игроки сражаются за выживание. забирай ресурсы с зон, и победи соперников!",
   "StartClientVersion": 573,
   "MapFilter": {
     "IsBlank": false,
@@ -19,28 +19,23 @@
     "Bool": [
       {
         "Name": "MapRotation",
-        "DisplayName": "GmParams/MapRotation",
+        "DisplayName": "<b><color=Orange>◀</a></b> Ротация карты. <b><color=Orange>▶</a></b>",
         "Default": true,
         "Order": 1
       },
       {
-        "Name": "OnlyKnives",
-        "DisplayName": "GmParams/OnlyKnives",
-        "Order": 2
-      },
-      {
         "Name": "OnlyPlayerBlocksDmg",
-        "DisplayName": "GmParams/OnlyPlayerBlocksDmg",
+        "DisplayName": "<b><color=Lime>◀</a></b> Лом блоков: выключен. <b><color=Lime>▶</a></b>",
         "Order": 3
       },
       {
         "Name": "LoosenBlocks",
-        "DisplayName": "GmParams/LoosenBlocks",
+        "DisplayName": "<b><color=Green>◀</a=</b> Лом блоков: включен. <b><color=Green>▶</a></b>",
         "Order": 4
       },
       {
-        "Name": "FriendlyFire",
-        "DisplayName": "GmParams/FriendlyFire",
+        "Name": "LoadRandomMap",
+        "DisplayName": "<b>color=Red>◀</a></b> Рандомная загрузка карты. <b><color=Red>▶</a></b>",
         "Order": 5
           }
         ]
