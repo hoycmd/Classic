@@ -22,6 +22,68 @@ const MainTimer = Timers.GetContext().Get('Main');
 const StateProp = Properties.GetContext().Get('State');
 const ScoresTimer = Timers.GetContext().Get('Scores');
 
+ // создаем триггеры 
+CreateNewArea('MeleeTrigger', ['MeleeTrigger'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: холодное оружие!';
+  player.inventory.Melee.Value = true;
+if (player.inventory.Melee.Value) {
+   p.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!';
+	return;
+    }
+ }, function(player, area) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true);
+
+CreateNewArea('SecondaryTrigger', ['SecondaryTrigger'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: вторичное оружие!';
+  player.inventory.Secondary.Value = true;
+if (player.inventory.Secondary.Value) {
+     player.Ui.Hint.Value = 'У вас, уже есть: вторичное оружие!';
+	return;
+    }
+ }, function(player, area) {}, 'ViewSecondaryTrigger', new Color(0, 1, 0, 0), true);
+
+CreateNewArea('MainTrigger', ['MainTrigger'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: основное оружие!';
+  player.inventory.Main.Value = true;
+if (player.inventory.Main.Value) {
+  p.Ui.Hint.Value = 'У вас, уже есть: основное оружие!';
+	return;
+    }
+ }, function(player, area) {}, 'ViewMainTrigger', new Color(0, 1, 0, 0), true);
+
+CreateNewArea('SecondaryInfinityTrigger', ['SecondaryInfinityTrigger'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: бесконечные боеприпасы, для вторичного - оружия!';
+  player.inventory.SecondaryInfinity.Value = true;
+ if (player.Properties.SecondaryInfinity.Value) {
+  player.Ui.Hint.Value = 'У вас, уже есть: бесконечные боеприпасы, для вторичного - оружия!';
+    return 
+    }
+ }, function(player, area) {}, 'ViewSecondaryInfinityTrigger', new Color(0, 1, 0, 0), true);
+
+CreateNewArea('MainInfinityTrigger', ['MainInfinityTrigger'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: бесконечные боеприпасы, для основного - оружия!';
+  player.inventory.MainInfinity.Value = true;
+if (player.Properties.MainInfinity.Value) {
+  player.Ui.Hint.Value = 'У вас, уже есть: бесконечные боеприпасы, для основного - оружия!';
+    return 
+}
+ }, function(player, area) {}, 'ViewMainInfinityTrigger', new Color(0, 1, 0, 0), true);
+
+CreateNewArea('Hp50', ['Hp50'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: (x50) бинты!';
+  player.Properties.Get('Hp50').Value = true;
+  player.contextedProperties.MaxHp.Value += 50;
+if (player.Properties.Get('Hp50').Value) {
+  player.Ui.Hint.Value = 'бинтов: (x50) нету!';
+ }, function(player, area) {}, 'ViewHp50', new Color(1, 0, 0, 0), true);
+
+CreateNewArea('Hp500', ['Hp500'], function(player, area){
+  player.Ui.Hint.Value = 'Вы, взяли: (x500) бинты!';
+  player.Properties.Get('Hp500').Value = true;
+  player.contextedProperties.MaxHp.Value += 500;
+if (player.Properties.Get('Hp500').Value) {
+  player.Ui.Hint.Value = 'бинтов: (x500) нету!';
+ }, function(player, area) {}, 'ViewHp500', new Color(1, 0, 0, 0), true);
+
 // параметры создания режима
 Map.Rotation = GameMode.Parameters.GetBool('MapRotation');
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool('PartialDesruction');
@@ -32,7 +94,7 @@ Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.PlayerBlocksBoost = true;
 
 // создаем команду
-Teams.Add('Blue', 'Teams/Blue \n Синия команда', new Color(0, 0, 0.5, 0));
+Teams.Add('Blue', 'Teams/Blue', new Color(0, 0, 0.5, 0));
 const BlueTeam = Teams.Get('Blue');
 BlueTeam.Spawns.SpawnPointsGroups.Add(1);
 BlueTeam.Spawns.RespawnTime.Value = 10;
@@ -138,68 +200,6 @@ function SetSertchWeapon() {
  inventory.Melee.Value = false;
  inventory.Explosive.Value = false;
  inventory.Build.Value = false;
-
- // создаем триггеры 
- CreateNewArea('MeleeTrigger', ['MeleeTrigger'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: холодное оружие!';
-  player.inventory.Melee.Value = true;
-if (player.inventory.Melee.Value) {
-   p.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!';
-	return;
-    }
- }, function(player, area) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true);
-
-CreateNewArea('SecondaryTrigger', ['SecondaryTrigger'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: вторичное оружие!';
-  player.inventory.Secondary.Value = true;
-if (player.inventory.Secondary.Value) {
-     player.Ui.Hint.Value = 'У вас, уже есть: вторичное оружие!';
-	return;
-    }
- }, function(player, area) {}, 'ViewSecondaryTrigger', new Color(0, 1, 0, 0), true);
-
-CreateNewArea('MainTrigger', ['MainTrigger'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: основное оружие!';
-  player.inventory.Main.Value = true;
-if (player.inventory.Main.Value) {
-  p.Ui.Hint.Value = 'У вас, уже есть: основное оружие!';
-	return;
-    }
- }, function(player, area) {}, 'ViewMainTrigger', new Color(0, 1, 0, 0), true);
-
-CreateNewArea('SecondaryInfinityTrigger', ['SecondaryInfinityTrigger'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: бесконечные боеприпасы, для вторичного - оружия!';
-  player.inventory.SecondaryInfinity.Value = true;
- if (player.Properties.SecondaryInfinity.Value) {
-  player.Ui.Hint.Value = 'У вас, уже есть: бесконечные боеприпасы, для вторичного - оружия!';
-    return 
-    }
- }, function(player, area) {}, 'ViewSecondaryInfinityTrigger', new Color(0, 1, 0, 0), true);
-
-CreateNewArea('MainInfinityTrigger', ['MainInfinityTrigger'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: бесконечные боеприпасы, для основного - оружия!';
-  player.inventory.MainInfinity.Value = true;
-if (player.Properties.MainInfinity.Value) {
-  player.Ui.Hint.Value = 'У вас, уже есть: бесконечные боеприпасы, для основного - оружия!';
-    return 
-}
- }, function(player, area) {}, 'ViewMainInfinityTrigger', new Color(0, 1, 0, 0), true);
-
-CreateNewArea('Hp50', ['Hp50'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: (x50) бинты!';
-  player.Properties.Get('Hp50').Value = true;
-  player.contextedProperties.MaxHp.Value += 50;
-if (player.Properties.Get('Hp50').Value) {
-  player.Ui.Hint.Value = 'бинтов: (x50) нету!';
- }, function(player, area) {}, 'ViewHp50', new Color(1, 0, 0, 0), true);
-
-CreateNewArea('Hp500', ['Hp500'], function(player, area){
-  player.Ui.Hint.Value = 'Вы, взяли: (x500) бинты!';
-  player.Properties.Get('Hp500').Value = true;
-  player.contextedProperties.MaxHp.Value += 500;
-if (player.Properties.Get('Hp500').Value) {
-  player.Ui.Hint.Value = 'бинтов: (x500) нету!';
- }, function(player, area) {}, 'ViewHp500', new Color(1, 0, 0, 0), true);
 
  MainTimer.Restart(SearchWeaponTime);
  Damage.GetContext().FriendlyFire.Value = false;
