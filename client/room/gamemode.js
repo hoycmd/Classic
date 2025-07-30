@@ -2,7 +2,7 @@
 Hi boss, thanks for the training, but I'm already interested in Java script on my laptop, so I won't be around much. Maybe we'll see each other again!
 Sincerely, TNT
 
-
+Okay ;/ So, if you will need help, let me know. Bye?
 
 
 
