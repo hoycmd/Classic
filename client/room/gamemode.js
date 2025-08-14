@@ -147,13 +147,13 @@ const ScoresTimer = Timers.GetContext().Get('Scores');
 // =====Зоны=====
 CreateNewArea('MeleeTrigger', ['MeleeTrigger'], function(player, area){
         if (player.inventory.Melee.Value) {
-                p.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!';
+                player.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!';
                 return;
         }
         player.Ui.Hint.Value = 'Вы, взяли: холодное оружие!';
         player.inventory.Melee.Value = true;
 }, function(player, area) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true);
-CreateNewArea('SecondaryTrigger', ['SecondaryTrigger'], function(player, area){
+CreateNewArea('SecondaryTrigger', ['SecondaryTrigger'], function(player,area){
         if (player.inventory.Secondary.Value) {
                 player.Ui.Hint.Value = 'У вас, уже есть: вторичное оружие!';
                 return;
@@ -205,7 +205,7 @@ CreateNewArea('Hp500', ['Hp500'], function(player, area){
 }, function(player, area) {}, 'ViewHp500', new Color(1, 0, 0, 0), true);
 
 // =====Настройки режима=====
-Map.Rotation = GameMode.Parameters.GetBool('MapRotation');
+const Map.Rotation = GameMode.Parameters.GetBool('MapRotation');
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool('PartialDesruction');
 BreackGraph.WeakBlocks = GameMode.Parameters.GetBool('LoosenBlocks');
 Damage.GetContext().DamageOut.Value = true;
@@ -239,14 +239,14 @@ Teams.OnPlayerChangeTeam.Add(function(player){
 });
 
 // =====Счётчик спавнов=====
-spawns.OnSpawn.Add(function(player) {
+Spawns.OnSpawn.Add(function(player) {
         player.Properties.Immortality.Value = true;
         player.Timers.Get('Immortality').Restart(10);
 });
 Timers.OnPlayerTimer.Add(function(timer) {
         if (timer.Id === 'Immortality') timer.player.Properties.Immortality.Value = false;
 });
-spawns.OnSpawn.Add(function(player) {
+Spawns.OnSpawn.Add(function(player) {
         ++player.Properties.Spawns.Value;
 });
 
@@ -331,15 +331,15 @@ function SetEnd0fMatch() {
         Players.All.forEach(player => {
                 if (player.Properties.Deaths.Value === 0) player.Properties.Scores.Value += WinnersScores;
         });
-        spawns.Enable = false;
-        spawns.Despawn();
+        Spawns.Enable = false;
+        Spawns.Despawn();
         ScoresTimer.Stop();
         MainTimer.Restart(End0fMatchTime);
         Game.GameOver(LeaderBoard.GetPlayers());
 }
 function RestartGame() {
         if (GameMode.Parameters.GetBool('LoadRandomMap')) Map.LoadRandomMap();
-        Game.RestartGame();
+        else Game.RestartGame();
 }
 function SpawnPlayers() {
         for (const player of Players) {
