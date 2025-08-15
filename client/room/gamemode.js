@@ -372,7 +372,7 @@ function CreateNewArea(AreaName, AreaTags, AreaEnable, AreaOnEnter, AreaOnExit, 
 
 // =====Ловля ошибок=====
 } catch (e) {
-        Room.Players.All.forEach(msg => {
+        Players.All.forEach(msg => {
              msg.Show(`${e.name}: ${e.message} ${e.stack}`);
         });
 }
