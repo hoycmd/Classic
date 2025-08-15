@@ -213,7 +213,7 @@ Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.PlayerBlocksBoost = true;
 
 // =====Создание команд=====
-const PlayersTeam = CreateNewTeam('Players', 'Игроки', new Color(0, 0, 0.5, 0), 1, BuildBlocksSet.Blue)
+const PlayersTeam = CreateNewTeam('Players', 'Игроки', new Color(0, 0, 0.5, 0), 1, BuildBlocksSet.Blue);
 
 // =====Лидерборд=====
 LeaderBoard.PlayerLeaderBoardValues = [
