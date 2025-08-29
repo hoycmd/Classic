@@ -27,92 +27,62 @@ const MeleeTrigger = CreateNewArea('MeleeTrigger', ['MeleeTrigger'], function(p,
  if (p.inventory.Melee.Value) p.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!'; return;
   p.Ui.Hint.Value = 'Вы, взяли: холодное оружие!';
   p.inventory.Melee.Value = true;
-}, function(p,a) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true)CreateNewAreae'SecondaryTrigger', ['SecondaryTrigger'], function(player,area){
-        if (player.inventory.Secondary.Value) {
-                player.Ui.Hint.Value = 'У вас, уже есть: вторичное оружие!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: вторичное оружие!';
-        player.inventory.Secondary.Value = true;
-}, function(player, area) {}, 'ViewSecondaryTrigger', new Color(0, 1, 0, 0), true)
-CreateNewArea'MainTrigger''MainTrigger'r', ['MainTrigger'], function(player, area){
-        if (player.inventory.Main.Value) {
-                p.Ui.Hint.Value = 'У вас, уже есть: основное оружие!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: основное оружие!';
-        player.inventory.Main.Value = true;
-}, function(player, area) {}, 'ViewMainTrigger', new Color(0, 1, 0, 0), true);
-CreateNewArea('SecondaryInfinityTrigger', ['SecondaryInfinityTrigger'], function(player, area){
-        if (player.Properties.SecondaryInfinity.Value) {
-                player.Ui.Hint.Value = 'У вас, уже есть: бесконечные боеприпасы, для вторичного - оружия!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: бесконечные боеприпасы, для вторичного - оружия!';
-        player.inventory.SecondaryInfinity.Value = true;
-}, function(player, area) {}, 'ViewSecondaryInfinityTrigger', new Color(0, 1, 0, 0), true);
-CreateNewArea('MainInfinityTrigger', ['MainInfinityTrigger'], function(player, area){
-        if (player.Properties.MainInfinity.Value) {
-                player.Ui.Hint.Value = 'У вас, уже есть: бесконечные боеприпасы, для основного - оружия!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: бесконечные боеприпасы, для основного - оружия!';
-        player.inventory.MainInfinity.Value = true;
-}, function(player, area) {}, 'ViewMainInfinityTrigger', new Color(0, 1, 0, 0), true);
-CreateNewArea('Hp50', ['Hp50'], function(player, area){
-        if (!player.Properties.Get('Hp50').Value) {
-                player.Ui.Hint.Value = 'бинтов: (x50) нету!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: (x50) бинты!';
-        player.Properties.Get('Hp50').Value = true;
-        player.contextedProperties.MaxHp.Value += 50;
-}, function(player, area) {}, 'ViewHp50', new Color(1, 0, 0, 0), true);
-CreateNewArea('Hp500', ['Hp500'], function(player, area){
-        if (!player.Properties.Get('Hp500').Value) {
-                player.Ui.Hint.Value = 'Бинтов: (x500) нету!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: (x500) бинты!';
-        player.Properties.Get('Hp500').Value = true;
-        player.contextedProperties.MaxHp.Value += 500;
-}, function(player, area) {}, 'ViewHp500', new Color(1, 0, 0, 0), true);
+}, function(p,a) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true);
+const SecondaryTrigger = CreateNewArea('SecondaryTrigger', ['SecondaryTrigger'], function(p,a){
+if (p.inventory.Secondary.Value) p.Ui.Hint.Value = 'У вас, уже есть: вторичное оружие!'; return;        
+ p.Ui.Hint.Value = 'Вы, взяли: вторичное оружие!';
+ p.inventory.Secondary.Value = true;
+}, function(p,a) {}, 'ViewSecondaryTrigger', new Color(0, 1, 0, 0), true);
+const MainTrigger = CreateNewArea('MainTrigger', ['MainTrigger'], function(p,a){
+ if (p.inventory.Main.Value) p.Ui.Hint.Value = 'У вас, уже есть: основное оружие!'; return;
+  p.Ui.Hint.Value = 'Вы, взяли: основное оружие!';
+  p.inventory.Main.Value = true;
+}, function(p,a) {}, 'ViewMainTrigger', new Color(0, 1, 0, 0), true);
+const Hp50 = CreateNewArea('Hp50', ['Hp50'], function(p,a){
+ if (!p.Properties.Get('Hp50').Value) p.Ui.Hint.Value = 'бинтов: (x50) нету!'; return;
+  p.Ui.Hint.Value = 'Вы, взяли: (x50) бинты!';
+  p.Properties.Get('Hp50').Value = true;
+  p.contextedProperties.MaxHp.Value += 50;
+}, function(p,a) {}, 'ViewHp50', new Color(1, 0, 0, 0), true);
+const Hp500 = CreateNewArea('Hp500', ['Hp500'], function(p,a){
+ if (!p.Properties.Get('Hp500').Value) p.Ui.Hint.Value = 'Бинтов: (x500) нету!'; return;       
+p.Ui.Hint.Value = 'Вы, взяли: (x500) бинты!';
+p.Properties.Get('Hp500').Value = true;
+p.contextedProperties.MaxHp.Value += 500;
+}, function(p,a) {}, 'ViewHp500', new Color(1, 0, 0, 0), true);
 
-// =====Настройки режима=====
-const Map.Rotation = GameMode.Parameters.GetBool('MapRotation');
+// опции
+const MapRotation = GameMode.Parameters.GetBool('MapRotation');
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool('PartialDesruction');
 BreackGraph.WeakBlocks = GameMode.Parameters.GetBool('LoosenBlocks');
 Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.PlayerBlocksBoost = true;
 
-// =====Создание команд=====
+// создаем команду
 const PlayersTeam = CreateNewTeam('Players', 'Игроки', new Color(0, 0, 0.5, 0), 1, BuildBlocksSet.Blue);
 
-// =====Лидерборд=====
+// лидерборд
 LeaderBoard.PlayerLeaderBoardValues = [
         new DisplayValueHeader('Kills', 'K', 'K'),
         new DisplayValueHeader('Deaths', 'D', 'D'),
         new DisplayValueHeader('Sores', 'Очки', 'Очки'),
         new DisplayValueHeader('Spawns', 'S', 'S')
 ];
-LeaderBoard.TeamWeightGetter.Set(function(player) {
-        return player.Properties.Get('Deaths').Value;
+LeaderBoard.TeamWeightGetter.Set(function(p) {
+        return p.Properties.Get('Deaths').Value;
 });
 
-// =====Вывод надписи сверху экрана (в полосе лидерборда)=====
+// табной интерфейс
 Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: 'TeamHint' };
 BlueTeam.Properties.Get('TeamHint').Value = 'Приятной игры!';
 
-// =====Запросы входа в команду и спавна после них=====
-Teams.OnRequestJoinTeam.Add(function(player, team){
-        team.Add(player);
-});
-Teams.OnPlayerChangeTeam.Add(function(player){
-        player.Spawns.Spawn();
-});
+// запрос в команду
+Teams.OnRequestJoinTeam.Add(function(p,t){ t.Add(p);});
+// запрос на респавн
+Teams.OnPlayerChangeTeam.Add(function(p){ p.Spawns.Spawn()});
 
-// =====Счётчик спавнов=====
+// 
 Spawns.OnSpawn.Add(function(player) {
         player.Properties.Immortality.Value = true;
         player.Timers.Get('Immortality').Restart(10);
