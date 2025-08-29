@@ -1,131 +1,9 @@
-/*
-Hi boss, thanks for the training, but I'm already interested in Java script on my laptop, so I won't be around much. Maybe we'll see each other again!
-Sincerely, TNT
-
-Okay ;/ So, if you will need help, let me know. Bye?
-
-привет уже на ноуте я могу откр консоль и писать там?
-
-Да. Браузер, потом Ctrl+Shift+I или настройки -> инструменты разработчика -> консоль. Входишь, там находишь вкладку console, потом вписываешь например:
-console.log('Hello World!');
-И этот код выведет тебе текст. Можешь попробовать также:
-let a = 1, b = 2, c = a + b;
-console.log(c);
-Ну и поэксперементировать на свой вкус... Что-то трудное можно написать, можно даже сайт. Обращайся (также могу рассказать подробнее о темах, которые
-написаны под всем этим текстом). И кстати, так общаться неудобно. Если бы ты просто держал телефон и ноутбук одновременно включенными, я мог бы в PC2 на телефоне
-тебе говорить, а на ноутбуке ты бы пробовал кодить. Но как знаешь...
-
-да ладн, какие дальше кмд ам чуть сложнее 
-
-
-
-
-
-
-
-
-Ку ТНТ. Я тут немного исправил код, если не подходит что-то скажи, уберу, ну или сам убери. Код находится после этого текста.
-Так как ты не любишь когда я тебя заставляю учиться, то вот просто материал (сам писал), а ты уж сам думай (мини обучение по JS, если захочешь
-прочитай, никто не заставляет, можешь просто удалить этот текст):
-
-Весь код буду писать так, чтобы ты понимал где код а где текст - начало кода позначаю как #S а конец как #E.
-
-Во первых - комментарии: ты уже знаешь //, они не влияют на программу. Но есть ещё такие, как я использую вокруг этого многострочного
-текста (палка и звёздочка).
-
-Во вторых - переменные, делаются так:
-#S
-// name - имя, value - значение.
-let name = value;
-#E
-Или:
-#S
-// name - имя.
-let name;
-#E
-Если значения нет (тогда её значние - undefined, смотри ниже).
-Ну а константы (переменные, которые нельзя изменить) делаются анологично с помощью const.
-
-В третьих - типы. Тип это всё что ты можешь найти: 1 это number (число), 'привет' это string (строка), true/false это boolean (логическое
-значение - да/нет), undefined - ничего (в программировании ничего тоже нужно учитывать), null - тоже ничего (но другое).
-Также есть: объекты (object), массивы (array) и функции (function).
-
-Вот самое простое что можешь сделать с числами: +, -, *, /, ** (степень), % (остаток от деления). Дробные числа записываются через точку (например, 3.14).
-
-Если говорить о строках, то они могут быть из трёх видов кавычек: ' (одинарные), " (двойные), и ` (обратные/апострофы).
-Строки можно добавлять, например: 'Учись' + 'ТНТ' будет 'УчисьТНТ'. Чтобы взять из строки определённый символ: 'строка'[0] даст 'с'.
-У строк есть определённые методы (встроенные функции), вот основные:
-#S
-'строка'.toUpperCase() // даёт 'СТРОКА' 
-'СТРОКА'.toLowerCase() // даёт 'строка'
-'строка'.includes('стр') // даёт true, так как 'стр' есть в строке 'строка' (иначе было бы false).
-'строка'.indexOf('о') // даёт 3, так как 'о' находится на 4 месте (всегда уменьшаем на 1, так как это индекс).
-#E
-
-Теперь когда ты знаешь типы ну и прямо минимальную основу (если ты вообще это читаешь), давай о сравнении:
-Когда ты сравниваешь что-то, тебе всегда даёт true (условие сравнивания сработало) или false (условие сравнивания не сработало).
-Есть два варианта сравнения на равность: == и ===. Первый сравнивает нестрого, второй строго (также сравнивает типы),
-вот например: '2' == 2 даст true, но если использовать === то нет (так как разные типы).
-Вот все операторы (знаки) для сравнения:
-==, ===, >, >= (больше или равно), <, <= (меньше или равно), != (не равно), !== (строгое не равно).
-Также есть знак ! для отрицания (например: !variable), если true даёт false и наоборот.
-
-Ну а теперь о конструкциях.
-Ты уже знаешь if, else, function. Вот о них и чуть-чуть:
-#S
-// Условие должно давать true или false. Поэтому чаще всего там операторы сравнения.
-if (variable === 0) {
-        Do();
-}
-
-// Можно без скобок "{}", если то, что нужно сделать в случае успеха, это лишь одна строка.
-if (variable === 0) Do();
-
-// Это конструкция если хочешь сделать "если" и "иначе".
-if (variable === 0) {
-        Do1();
-} else {
-        Do2();
-}
-
-// Также можно комбинировать, вот так (но это уже трудные конструкции): if () {} else if () {} else {}
-#E
-
-С функциями нужно объяснить немного больше:
-#S
-function name(param1, param2) {} // name это имя, param это параметры, или аргументы (они не обязательны).
-
-// Например в PC2 можно сделать такую функцию, которая будет выводить текст игроку:
-function ph(p, h) {
-        p.Ui.Hint.Value = h;
-}
-// И потом делать так:
-ph(player, 'Привет!');
-
-// Но это не весь их функционал, так как функции также могут давать значение, для этого есть return, например:
-function add(a, b) {
-        return a + b;
-}
-
-// Теперь при вызове:
-add(1, 2); // Даёт 3.
-
-// Ну а если return в функции нет (или есть но без ничего, просто return), то она возвращает (то есть даёт) undefined.
-#E
-
-Я думаю если ты научишься этого, тебе уже будет легче. Ну а если захочешь, могу учить дальше, тут много чего интересного:
-циклы (важная вещь, for, while), массивы ([1, 2, 3]), объекты ({name: 'TNT', lvl: 0}), замыкания (сложная тема, в скобках не покажу),
-import и export, связка с HTML и CSS.
-
-Если прочитал это, или пропустил, можешь удалить.
-Ну а дальше идёт твой код, который я, надеюсь, исправил...
-*/
 import { Players, Inventory, Teams, Ui, Game, Spawns, LeaderBoard, Damage, GameMode, BuildBlocksSet, BreackGraph , Properties, Map, AreaPlayerTriggerService, AreaService, Timers, TeamsBalancer, msg } from 'pixel_combats/room';
 import { DisplayValueHeader, Color } from 'pixel_combats/basic';
 
-try {
+try 
 
-// =====Настройки=====
+// настройки
 const WaitingPlayersTime = 11;
 const SearchWeaponTime = 51;
 const GameModeTime = 361;
@@ -144,24 +22,20 @@ const MainTimer = Timers.GetContext().Get('Main');
 const StateProp = Properties.GetContext().Get('State');
 const ScoresTimer = Timers.GetContext().Get('Scores');
 
-// =====Зоны=====
-CreateNewArea('MeleeTrigger', ['MeleeTrigger'], function(player, area){
-        if (player.inventory.Melee.Value) {
-                player.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!';
-                return;
-        }
-        player.Ui.Hint.Value = 'Вы, взяли: холодное оружие!';
-        player.inventory.Melee.Value = true;
-}, function(player, area) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true);
-CreateNewArea('SecondaryTrigger', ['SecondaryTrigger'], function(player,area){
+// триггеры
+const MeleeTrigger = CreateNewArea('MeleeTrigger', ['MeleeTrigger'], function(p,a){
+ if (p.inventory.Melee.Value) p.Ui.Hint.Value = 'У вас, уже есть: холодное оружие!'; return;
+  p.Ui.Hint.Value = 'Вы, взяли: холодное оружие!';
+  p.inventory.Melee.Value = true;
+}, function(p,a) {}, 'ViewMeleeTrigger', new Color(0, 1, 0, 0), true)CreateNewAreae'SecondaryTrigger', ['SecondaryTrigger'], function(player,area){
         if (player.inventory.Secondary.Value) {
                 player.Ui.Hint.Value = 'У вас, уже есть: вторичное оружие!';
                 return;
         }
         player.Ui.Hint.Value = 'Вы, взяли: вторичное оружие!';
         player.inventory.Secondary.Value = true;
-}, function(player, area) {}, 'ViewSecondaryTrigger', new Color(0, 1, 0, 0), true);
-CreateNewArea('MainTrigger', ['MainTrigger'], function(player, area){
+}, function(player, area) {}, 'ViewSecondaryTrigger', new Color(0, 1, 0, 0), true)
+CreateNewArea'MainTrigger''MainTrigger'r', ['MainTrigger'], function(player, area){
         if (player.inventory.Main.Value) {
                 p.Ui.Hint.Value = 'У вас, уже есть: основное оружие!';
                 return;
